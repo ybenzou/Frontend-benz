@@ -22,7 +22,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen">
       <aside className="fixed inset-y-0 left-0 z-30 hidden w-[72px] flex-col border-r border-[var(--line-subtle)] bg-[var(--surface)] md:flex">
         <div className="flex h-12 items-center justify-center border-b border-[var(--line-subtle)]">
-          <span className="grid size-8 place-items-center rounded-[5px] border border-[var(--accent-dim)] bg-[var(--surface-raised)] text-[10px] font-bold tracking-[.12em] text-[var(--accent)]">MD</span>
+          <span className="grid size-8 place-items-center rounded-[5px] border border-[var(--accent-dim)] bg-[var(--surface-raised)] text-[.6875rem] font-bold tracking-[.12em] text-[var(--accent)]">MD</span>
         </div>
         <nav className="flex flex-1 flex-col items-center gap-1 py-3" aria-label="Primary navigation">
           {nav.map(({ href, label, icon: Icon }) => {
@@ -33,7 +33,7 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             </Link>;
           })}
         </nav>
-        <div className="px-2 pb-3 text-center text-[9px] font-semibold tracking-[.14em] text-[var(--muted)]">R.26</div>
+        <div className="px-2 pb-3 text-center text-[.625rem] font-semibold tracking-[.14em] text-[var(--muted)]">R.26</div>
       </aside>
       <div className="md:pl-[72px]">
         <header className="sticky top-0 z-20 border-b border-[var(--line-subtle)] bg-[color:var(--ink)]/96">
@@ -44,9 +44,9 @@ export function AppShell({ children }: { children: React.ReactNode }) {
             </div>
             <div title="Global search is unavailable in this demo" className="flex h-8 max-w-lg flex-1 items-center gap-2 rounded-[5px] border border-[var(--line)] bg-[var(--surface)] px-3 text-[var(--muted)] opacity-70">
             <Search size={14} /><input disabled aria-label="Global search unavailable in demo" className="min-w-0 flex-1 cursor-not-allowed bg-transparent text-xs placeholder:text-[var(--muted)]" placeholder="Search securities, filings, or metrics — unavailable" />
-            <span className="hide-mobile flex items-center gap-1 text-[11px]"><Command size={12} /> K</span>
+            <span className="hide-mobile flex items-center gap-1 text-[.6875rem]"><Command size={12} /> K</span>
           </div>
-            <div title="Demonstration market state from July 21, 2026" className="hide-mobile flex items-center gap-2 text-[11px]"><span className="size-1.5 rounded-full bg-[var(--warning)]" /><span className="text-[var(--muted)]">SIMULATED SESSION</span></div>
+            <div title="Demonstration market state from July 21, 2026" className="hide-mobile flex items-center gap-2 text-[.6875rem]"><span className="size-1.5 rounded-full bg-[var(--warning)]" /><span className="text-[var(--muted)]">SIMULATED SESSION</span></div>
             <button disabled title="User menu is unavailable in this demo" aria-label="User menu unavailable in demo"><CircleUserRound size={22} className="text-[var(--muted)]" /></button>
           </div>
           <SimulatedTape />

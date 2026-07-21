@@ -27,7 +27,7 @@ export function SimulatedTape() {
 
   return (
     <div
-      className="ticker flex h-8 items-center overflow-hidden border-t border-[var(--line-subtle)] bg-[var(--surface)] text-[10px]"
+      className="ticker flex h-8 items-center overflow-hidden border-t border-[var(--line-subtle)] bg-[var(--surface)] text-[.6875rem]"
       aria-label="Simulated market tape"
     >
       <span className="h-full shrink-0 border-r border-[var(--line)] px-3 py-2 font-sans font-semibold tracking-[.1em] text-[var(--muted)]">

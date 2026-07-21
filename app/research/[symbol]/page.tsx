@@ -21,11 +21,12 @@ export default async function ResearchPage({ params }: { params: Promise<{ symbo
     ["Avg. volume", `${quote.volume.toFixed(1)}M`],
   ];
   return <div className="page-grid pb-16 md:pb-0">
-    <div className="flex flex-wrap items-end justify-between gap-3">
-      <div><p className="eyebrow">Equity research / NASDAQ / {quote.symbol}</p><div className="mt-1 flex items-baseline gap-3"><h1 className="page-title">{quote.name}</h1><span className="ticker text-sm font-medium text-[var(--accent)]">{quote.symbol}</span></div></div>
-      <div className="flex gap-2"><button disabled title="Price alerts are unavailable in this demo" aria-label="Price alerts unavailable in demo" className="control"><Bell size={15}/></button><button disabled title="Sharing is unavailable in this demo" aria-label="Sharing unavailable in demo" className="control"><Share2 size={15}/></button><button disabled title="Adding symbols is unavailable in this demo" aria-label="Add to watchlist unavailable in demo" className="control flex items-center gap-2"><Plus size={14}/> Watchlist</button></div>
-    </div>
+    <h1 className="sr-only">{quote.name} research</h1>
     <section className="panel overflow-hidden">
+      <div className="panel-header flex-wrap gap-2 py-2">
+        <div className="flex flex-wrap items-baseline gap-2"><span className="section-label">{quote.name}</span><span className="ticker text-xs font-medium text-[var(--accent)]">{quote.symbol}</span><span className="eyebrow">XNAS · Equity research</span></div>
+        <div className="flex gap-2"><button disabled title="Price alerts are unavailable in this demo" aria-label="Price alerts unavailable in demo" className="control"><Bell size={15}/></button><button disabled title="Sharing is unavailable in this demo" aria-label="Sharing unavailable in demo" className="control"><Share2 size={15}/></button><button disabled title="Adding symbols is unavailable in this demo" aria-label="Add to watchlist unavailable in demo" className="control flex items-center gap-2"><Plus size={14}/> Watchlist</button></div>
+      </div>
       <div className="flex flex-wrap items-end justify-between gap-5 bg-[var(--surface-raised)] px-5 py-5 sm:px-6">
         <SimulatedQuote price={quote.price} previousClose={quote.price - quote.change} />
         <div className="grid grid-cols-3 gap-x-6 gap-y-2 text-right">

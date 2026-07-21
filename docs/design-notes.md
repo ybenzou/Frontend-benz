@@ -18,3 +18,9 @@ The interface now uses local IBM Plex Sans and Plex Mono, a fixed 72 px icon rai
 Generic page-title bands were removed in favor of content-first toolbars and data panels. Static Plex weights improve Windows text rasterization, while the root type scale increases at 1440 px and 1920 px so large displays gain readable density instead of simply adding empty space.
 
 Shell chrome now uses intrinsic fluid primitives instead of per-breakpoint widths: fill slots consume remaining toolbar space, market-tape columns share available width, and animated quote slots size themselves from their content. These constraints keep right edges aligned and prevent text clipping as the viewport or root type scale changes; on narrow screens the complete tape remains available through horizontal scrolling without widening the page.
+
+## Open terminal boundaries
+
+Content boundaries use six presentation-only primitives: `OpenSection`, `SectionHeader`, `SegmentedRule`, `DataGroup`, `EmphasisSurface`, and `TableRegion`. Open sections are the default; complete boundaries are reserved for the quote hero, primary result sets, and portfolio account surfaces. Segmented rules mark section-level transitions, while table rows retain only quiet hairlines and hover emphasis.
+
+The five primary routes now use five emphasis surfaces instead of fifteen complete panels. Intrinsic grids and local table scrolling preserve terminal density at 1920, 1440, 977, and 390 px without introducing page-level horizontal overflow.

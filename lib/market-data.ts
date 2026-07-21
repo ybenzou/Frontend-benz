@@ -1,58 +1,28 @@
-import { z } from "zod";
+import {
+  eventSchema,
+  holdingSchema,
+  quoteSchema,
+  researchSchema,
+  type Holding,
+  type MarketEvent,
+  type Quote,
+  type ResearchSnapshot,
+} from "./market/contracts";
 
-export const quoteSchema = z.object({
-  symbol: z.string(),
-  name: z.string(),
-  price: z.number(),
-  change: z.number(),
-  changePercent: z.number(),
-  sector: z.string(),
-  marketCap: z.number(),
-  pe: z.number(),
-  volume: z.number(),
-  spark: z.array(z.number()),
-});
-
-export type Quote = z.infer<typeof quoteSchema>;
-
-export const eventSchema = z.object({
-  time: z.string(),
-  tag: z.string(),
-  title: z.string(),
-  detail: z.string(),
-});
-
-export const holdingSchema = z.object({
-  symbol: z.string(),
-  shares: z.number().positive(),
-  avg: z.number().nonnegative(),
-  price: z.number().nonnegative(),
-  previousPrice: z.number().nonnegative(),
-  sector: z.string(),
-});
-
-const researchSchema = z.object({
-  quote: quoteSchema,
-  history: z.array(z.object({ date: z.string(), price: z.number(), volume: z.number() })),
-  financials: z.array(z.object({
-    year: z.string(),
-    revenue: z.number(),
-    income: z.number(),
-    margin: z.number(),
-  })),
-  metrics: z.object({
-    enterpriseValue: z.number(),
-    evEbitda: z.number(),
-    dividendYield: z.number(),
-    beta: z.number(),
-    low52Week: z.number(),
-    high52Week: z.number(),
-  }),
-  events: z.array(eventSchema),
-});
-
-export type ResearchSnapshot = z.infer<typeof researchSchema>;
-export type Holding = z.infer<typeof holdingSchema>;
+export {
+  eventSchema,
+  fundamentalsSchema,
+  holdingSchema,
+  quoteSchema,
+  realQuoteSchema,
+  researchSchema,
+  type Fundamentals,
+  type Holding,
+  type MarketEvent,
+  type Quote,
+  type RealQuote,
+  type ResearchSnapshot,
+} from "./market/contracts";
 
 const quotes: Quote[] = [
   { symbol: "AAPL", name: "Apple Inc.", price: 234.41, change: 2.84, changePercent: 1.23, sector: "Technology", marketCap: 3520, pe: 35.7, volume: 48.2, spark: [229, 231, 230, 233, 232, 235, 234] },
@@ -144,11 +114,11 @@ export interface MarketRepository {
     marketStatus: string;
     indices: typeof marketIndices;
     sectors: typeof sectors;
-    events: z.infer<typeof eventSchema>[];
+    events: MarketEvent[];
     watchlist: Quote[];
   };
   getResearch(symbol: string): ResearchSnapshot | undefined;
-  getPortfolio(): { snapshotDate: string; holdings: Holding[]; events: z.infer<typeof eventSchema>[] };
+  getPortfolio(): { snapshotDate: string; holdings: Holding[]; events: MarketEvent[] };
 }
 
 export const marketRepository: MarketRepository = {

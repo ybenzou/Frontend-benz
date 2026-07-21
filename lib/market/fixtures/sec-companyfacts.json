@@ -1,0 +1,100 @@
+{
+  "cik": 320193,
+  "entityName": "Apple Inc.",
+  "facts": {
+    "dei": {
+      "EntityCommonStockSharesOutstanding": {
+        "label": "Entity Common Stock, Shares Outstanding",
+        "units": {
+          "shares": [
+            {
+              "end": "2026-05-15",
+              "filed": "2026-06-01",
+              "form": "10-Q",
+              "fy": 2026,
+              "fp": "Q2",
+              "val": 14773260000
+            }
+          ]
+        }
+      }
+    },
+    "us-gaap": {
+      "RevenueFromContractWithCustomerExcludingAssessedTax": {
+        "label": "Revenue",
+        "units": {
+          "USD": [
+            {
+              "start": "2023-10-01",
+              "end": "2024-09-28",
+              "filed": "2024-11-01",
+              "form": "10-K",
+              "fy": 2024,
+              "fp": "FY",
+              "val": 391035000000
+            }
+          ]
+        }
+      },
+      "Revenues": {
+        "label": "Revenue",
+        "units": {
+          "USD": [
+            {
+              "start": "2024-09-29",
+              "end": "2025-09-27",
+              "filed": "2025-10-29",
+              "form": "10-K",
+              "fy": 2025,
+              "fp": "FY",
+              "val": 416161000000
+            },
+            {
+              "start": "2024-09-29",
+              "end": "2025-09-27",
+              "filed": "2025-11-03",
+              "form": "10-K/A",
+              "fy": 2026,
+              "fp": "FY",
+              "val": 420000000000
+            },
+            {
+              "start": "2025-12-28",
+              "end": "2026-03-28",
+              "filed": "2026-05-01",
+              "form": "10-Q",
+              "fy": 2026,
+              "fp": "Q2",
+              "val": 95000000000
+            },
+            {
+              "start": "2025-06-29",
+              "end": "2025-09-27",
+              "filed": "2026-01-01",
+              "form": "10-K",
+              "fy": 2025,
+              "fp": "FY",
+              "val": 999000000000
+            }
+          ]
+        }
+      },
+      "NetIncomeLoss": {
+        "label": "Net Income",
+        "units": {
+          "USD": [
+            {
+              "start": "2024-09-29",
+              "end": "2025-09-27",
+              "filed": "2025-10-30",
+              "form": "10-K",
+              "fy": 2025,
+              "fp": "FY",
+              "val": 112010000000
+            }
+          ]
+        }
+      }
+    }
+  }
+}

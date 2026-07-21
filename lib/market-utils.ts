@@ -22,13 +22,29 @@ export function formatCompact(value: number) {
   }).format(value);
 }
 
+export function getDivergingBar(value: number, maxMagnitude: number) {
+  const direction = value > 0 ? "positive" : value < 0 ? "negative" : "neutral";
+  const scale = maxMagnitude > 0 ? maxMagnitude : 1;
+
+  return {
+    direction,
+    size: Math.min(Math.abs(value) / scale, 1) * 50,
+  };
+}
+
 export type ScreenerFilters = {
   sector?: string;
   minMarketCap?: number;
   maxPe?: number;
 };
 
-export function filterScreener<T extends { sector: string; marketCap: number; pe?: number }>(
+export function filterScreener<
+  T extends {
+    sector: string | null;
+    marketCap: number | null;
+    pe?: number | null;
+  },
+>(
   stocks: T[],
   filters: ScreenerFilters,
 ) {
@@ -37,8 +53,10 @@ export function filterScreener<T extends { sector: string; marketCap: number; pe
       (!filters.sector ||
         filters.sector === "All sectors" ||
         stock.sector === filters.sector) &&
-      (!filters.minMarketCap || stock.marketCap >= filters.minMarketCap) &&
-      (!filters.maxPe || stock.pe === undefined || stock.pe <= filters.maxPe),
+      (!filters.minMarketCap ||
+        (stock.marketCap !== null &&
+          stock.marketCap >= filters.minMarketCap)) &&
+      (!filters.maxPe || (stock.pe != null && stock.pe <= filters.maxPe)),
   );
 }
 

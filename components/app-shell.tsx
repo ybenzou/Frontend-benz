@@ -37,12 +37,12 @@ export function AppShell({ children }: { children: React.ReactNode }) {
       </aside>
       <div className="md:pl-[72px]">
         <header className="sticky top-0 z-20 border-b border-[var(--line-subtle)] bg-[color:var(--ink)]/96">
-          <div className="flex h-12 items-center gap-4 px-3 sm:px-5">
+          <div className="fluid-bar h-12 gap-4 px-3 sm:px-5">
             <div className="hidden items-baseline gap-2 md:flex">
               <strong className="text-sm font-semibold tracking-[-.02em]">MarketDesk</strong>
               <span className="eyebrow">Research terminal</span>
             </div>
-            <div title="Global search is unavailable in this demo" className="flex h-8 max-w-lg flex-1 items-center gap-2 rounded-[5px] border border-[var(--line)] bg-[var(--surface)] px-3 text-[var(--muted)] opacity-70">
+            <div title="Global search is unavailable in this demo" className="fluid-bar fluid-bar__fill h-8 gap-2 rounded-[5px] border border-[var(--line)] bg-[var(--surface)] px-3 text-[var(--muted)] opacity-70">
             <Search size={14} /><input disabled aria-label="Global search unavailable in demo" className="min-w-0 flex-1 cursor-not-allowed bg-transparent text-xs placeholder:text-[var(--muted)]" placeholder="Search securities, filings, or metrics — unavailable" />
             <span className="hide-mobile flex items-center gap-1 text-[.6875rem]"><Command size={12} /> K</span>
           </div>

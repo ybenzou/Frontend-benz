@@ -95,6 +95,38 @@ button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible
 .sector-bar > span { display: block; height: 100%; background: currentColor; }
 .quote-flash-positive { background: var(--positive-dim); color: var(--positive); }
 .quote-flash-negative { background: var(--negative-dim); color: var(--negative); }
+.fluid-bar {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+.fluid-bar__fill {
+  flex: 1 1 auto;
+  min-width: 0;
+}
+.market-tape-track {
+  display: grid;
+  grid-auto-flow: column;
+  grid-auto-columns: minmax(max-content, 1fr);
+  flex: 1 1 auto;
+  min-width: max-content;
+}
+.market-tape {
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  scrollbar-width: none;
+}
+.market-tape::-webkit-scrollbar { display: none; }
+.quote-value-slot {
+  display: grid;
+  min-height: 3.75rem;
+  min-width: max-content;
+  align-items: start;
+}
+.quote-value-slot > * {
+  grid-area: 1 / 1;
+  white-space: nowrap;
+}
 .index-grid {
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));

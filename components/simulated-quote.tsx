@@ -35,15 +35,15 @@ export function SimulatedQuote({
         <span className="eyebrow text-[var(--warning)]">Simulated quote · deterministic mock</span>
       </div>
       <div className="flex flex-wrap items-end gap-x-5 gap-y-2">
-        <div className="relative h-[58px] min-w-[220px] overflow-hidden">
-          <AnimatePresence initial={false} mode="popLayout">
+        <div className="quote-value-slot">
+          <AnimatePresence initial={false} mode="wait">
             <motion.span
               key={currentPrice}
               initial={reduceMotion ? false : { y: direction === "up" ? 22 : -22, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
-              exit={reduceMotion ? undefined : { y: direction === "up" ? -22 : 22, opacity: 0 }}
-              transition={{ duration: reduceMotion ? 0 : 0.28, ease: "easeOut" }}
-              className="tnum absolute left-0 text-[clamp(2.875rem,6vw,3.25rem)] font-semibold leading-[1.08] tracking-[-.065em]"
+              exit={reduceMotion ? undefined : { y: direction === "up" ? -8 : 8, opacity: 0 }}
+              transition={{ duration: reduceMotion ? 0 : 0.18, ease: "easeOut" }}
+              className="tnum text-[clamp(2.875rem,6vw,3.25rem)] font-semibold leading-[1.08] tracking-[-.04em]"
             >
               {formatCurrency(currentPrice)}
             </motion.span>

@@ -27,13 +27,15 @@ export function SimulatedTape() {
 
   return (
     <div
-      className="ticker flex h-8 items-center overflow-hidden border-t border-[var(--line-subtle)] bg-[var(--surface)] text-[.6875rem]"
+      className="market-tape ticker flex h-8 items-center border-t border-[var(--line-subtle)] bg-[var(--surface)] text-[.6875rem]"
+      role="region"
+      tabIndex={0}
       aria-label="Simulated market tape"
     >
       <span className="h-full shrink-0 border-r border-[var(--line)] px-3 py-2 font-sans font-semibold tracking-[.1em] text-[var(--muted)]">
         MARKET TAPE · MOCK
       </span>
-      <div className="flex min-w-max flex-1 items-center">
+      <div className="market-tape-track">
         {ITEMS.map((item, index) => {
           const tick = index === activeIndex ? TICKS[step % TICKS.length] : 0;
           const value = item.value + tick;
@@ -48,7 +50,7 @@ export function SimulatedTape() {
                   : { backgroundColor: "rgba(0,0,0,0)" }
               }
               transition={{ duration: 0.3, repeat: 1, repeatType: "reverse" }}
-              className="flex h-full min-w-[150px] items-center gap-2 border-r border-[var(--line-subtle)] px-4"
+              className="flex h-full min-w-max items-center justify-center gap-2 border-r border-[var(--line-subtle)] px-4"
             >
               <strong className="text-[var(--text-soft)]">{item.symbol}</strong>
               <motion.span
